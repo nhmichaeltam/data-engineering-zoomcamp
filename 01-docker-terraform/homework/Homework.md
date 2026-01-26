@@ -134,7 +134,7 @@ Note: it's tip , not trip. We need the name of the zone, not the ID.
 Answer - Yorkville West
 
 ```
-xSELECT z_do."Zone" AS dropoff_zone, MAX(t."tip_amount") AS max_tip
+SELECT z_do."Zone" AS dropoff_zone, MAX(t."tip_amount") AS max_tip
 FROM "green_taxi_trips_2025_11" t
 JOIN "zones" z_do ON t."DOLocationID" = z_do."LocationID"
 JOIN "zones" z_pu ON t."PULocationID" = z_pu."LocationID"
