@@ -4,10 +4,9 @@
 
 Answer - 128.3 MiB
 
-```
+
 ![alt text](image.png)
 
-```
 
 ## Question 2. What is the rendered value of the variable file when the inputs taxi is set to green, year is set to 2020, and month is set to 04 during execution?
 
@@ -58,8 +57,7 @@ WHERE filename like 'yellow_tripdata_2021-03%';
 
 Answer - Add a timezone property set to America/New_York in the Schedule trigger configuration
 
-```
+
 ![alt text](image-1.png)
 
-```
 
