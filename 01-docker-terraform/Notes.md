@@ -10,3 +10,4 @@ docker stop <container> -> stops running container
 docker start <container> -> starts existing stopped container
 docker restart <container> -> stops and starts container again
 docker rm <container> -> deletes a stopped container
+docker system prune -a --volumes -> remove all unused Docker objects to resolve low disk space

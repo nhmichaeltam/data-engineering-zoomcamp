@@ -37,7 +37,7 @@ WHERE filename LIKE 'yellow_tripdata_2020-%'
 Answer - 1,734,051
 
 ```
-SELECT COUNT (*)
+SELECT COUNT(*)
 FROM green_tripdata
 WHERE filename LIKE 'green_tripdata_2020-%'
 
@@ -45,21 +45,21 @@ WHERE filename LIKE 'green_tripdata_2020-%'
 
 ## Question 5. How many rows are there for the Yellow Taxi data for the March 2021 CSV file?
 
-Answer - xx
+Answer - 1,925,152
 
 ```
-xxx
+SELECT COUNT(*) 
+FROM yellow_tripdata
+WHERE filename like 'yellow_tripdata_2021-03%';
 
 ```
 
-## Question 6. xx
+## Question 6. How would you configure the timezone to New York in a Schedule trigger?
 
-xxx
-
-Answer - xx
+Answer - Add a timezone property set to America/New_York in the Schedule trigger configuration
 
 ```
-xxx
+![alt text](image-1.png)
 
 ```
 
