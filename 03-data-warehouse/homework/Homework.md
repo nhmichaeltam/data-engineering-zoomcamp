@@ -65,10 +65,12 @@ SELECT PULocationID, DOLocationID FROM `nhmichaeltam-de-zoomcamp.trips_data_all.
 
 How many records have a fare_amount of 0?
 
-Answer - xx
+Answer - 8,333
 
 ```
-xx
+SELECT count(*) 
+FROM `nhmichaeltam-de-zoomcamp.trips_data_all.yellow_tripdata_2024`
+WHERE fare_amount = 0;
 
 ```
 
@@ -76,10 +78,13 @@ xx
 
 What is the best strategy to make an optimized table in Big Query if your query will always filter based on tpep_dropoff_datetime and order the results by VendorID (Create a new table with this strategy)
 
-Answer - xx
+Answer - Create new table that is partitioned by dropoff datetime and clustered by VendorID.
 
 ```
-xx
+CREATE OR REPLACE TABLE `nhmichaeltam-de-zoomcamp.trips_data_all.yellow_tripdata_2024_clustered`
+PARTITION BY DATE(tpep_dropoff_datetime)
+CLUSTER BY VendorID AS
+SELECT * FROM `nhmichaeltam-de-zoomcamp.trips_data_all.yellow_tripdata_2024`;
 
 ```
 
@@ -91,10 +96,18 @@ Use the materialized table you created earlier in your from clause and note the 
 
 Choose the answer which most closely matches.
 
-Answer - xx
+Answer - 310.24 MB for non-partitioned table and 26.84 MB for the partitioned table
 
 ```
-xx
+-- Non partitioned
+SELECT DISTINCT(VendorID)
+FROM `nhmichaeltam-de-zoomcamp.trips_data_all.yellow_tripdata_2024`
+WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
+
+-- Partitioned
+SELECT DISTINCT(VendorID)
+FROM `nhmichaeltam-de-zoomcamp.trips_data_all.yellow_tripdata_2024_clustered`
+WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
 
 ```
 
@@ -102,31 +115,24 @@ xx
 
 Where is the data stored in the External Table you created?
 
-Answer - xx
+Answer - GCP Bucket
 
-```
-xx
-
-```
+It's external as the data remains in original location (i.e. GCP storage)
 
 ## Question 8. Clustering best practices
 
 It is best practice in Big Query to always cluster your data:
 
-Answer - xx
-
-```
-xx
-
-```
+Answer - True. Exception being for tables <1GB which won't show much improvement.  
 
 ## Question 9. Understanding table scans
 
 No Points: Write a SELECT count(*) query FROM the materialized table you created. How many bytes does it estimate will be read? Why?
 
-Answer - xx
+Answer - The estimate number of bytes is 0 B, this is because BigQuery retrieves the count of entries directly from table metadata, and not from the actual data.
 
 ```
-xx
+SELECT COUNT(*) 
+ROM `nhmichaeltam-de-zoomcamp.trips_data_all.yellow_tripdata_2024`;
 
 ```
