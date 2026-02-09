@@ -6,7 +6,7 @@ tasks:
     type: io.kestra.plugin.gcp.gcs.CreateBucket
     ifExists: SKIP
     storageClass: REGIONAL
-    name: "{{kv('ny-taxi-nhmichaeltam')}}" 
+    name: "{{kv('GCP_BUCKET_NAME')}}" # make sure it's globally unique!
 
   - id: create_bq_dataset
     type: io.kestra.plugin.gcp.bigquery.CreateDataset
@@ -16,7 +16,7 @@ tasks:
 pluginDefaults:
   - type: io.kestra.plugin.gcp
     values:
-      serviceAccount: "{{kv('GCP_CREDS')}}"
+      serviceAccount: "{{secret('GCP_SERVICE_ACCOUNT')}}"
       projectId: "{{kv('GCP_PROJECT_ID')}}"
       location: "{{kv('GCP_LOCATION')}}"
-      bucket: "{{kv('ny-taxi-nhmichaeltam')}}"
+      bucket: "{{kv('GCP_BUCKET_NAME')}}"

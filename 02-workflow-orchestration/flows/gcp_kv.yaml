@@ -6,7 +6,7 @@ tasks:
     type: io.kestra.plugin.core.kv.Set
     key: GCP_PROJECT_ID
     kvType: STRING
-    value: de-zoomcamp-nhmichaeltam # project id
+    value: kestra-sandbox-nhmichaeltam # project id
 
   - id: gcp_location
     type: io.kestra.plugin.core.kv.Set
@@ -18,7 +18,7 @@ tasks:
     type: io.kestra.plugin.core.kv.Set
     key: GCP_BUCKET_NAME
     kvType: STRING
-    value: ny-taxi-nhmichaeltam # unique bucket name 
+    value: kestra-zoomcamp-nhmichaeltam # unique bucket name 
 
   - id: gcp_dataset
     type: io.kestra.plugin.core.kv.Set
