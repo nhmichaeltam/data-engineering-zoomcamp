@@ -78,7 +78,7 @@ WHERE fare_amount = 0;
 
 What is the best strategy to make an optimized table in Big Query if your query will always filter based on tpep_dropoff_datetime and order the results by VendorID (Create a new table with this strategy)
 
-Answer - Create new table that is partitioned by dropoff datetime and clustered by VendorID.
+Answer - Partition by tpep_dropoff_datetime and Cluster on VendorID.
 
 ```
 CREATE OR REPLACE TABLE `nhmichaeltam-de-zoomcamp.trips_data_all.yellow_tripdata_2024_clustered`
